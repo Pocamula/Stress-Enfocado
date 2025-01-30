@@ -1,38 +1,42 @@
-# MindSync - Gestión del Estrés y Salud Mental
-
-![MindSync Logo](assets/icono-stress-enfocado.svg)
-
-**MindSync** es una aplicación web diseñada para ayudarte a gestionar el estrés y mejorar tu salud mental. Ofrece herramientas como el registro de emociones, ejercicios de respiración guiada, tareas personalizadas y consejos diarios.
 
 ---
 
-## 🚀 Características principales
+## 🌐 Publicación
 
-- **Registro de emociones**: Registra cómo te sientes cada día y revisa tu historial de emociones.
-- **Ejercicios de respiración**: Realiza ejercicios de respiración guiada para relajarte.
-- **Tareas personalizadas**: Añade y gestiona tareas para reducir el estrés.
-- **Consejos diarios**: Recibe consejos útiles para mejorar tu salud mental.
+Puedes acceder a la aplicación en línea a través de GitHub Pages:  
+[Ver MindSync en GitHub Pages](https://tunombredeusuario.github.io/MindSync)
 
 ---
 
-## 🛠️ Cómo usar
+## 🤝 Contribuir
 
-1. **Regístrate**: Ingresa tu nombre de usuario y correo electrónico.
-2. **Registra tus emociones**: Selecciona cómo te sientes hoy.
-3. **Realiza ejercicios de respiración**: Sigue las instrucciones para relajarte.
-4. **Añade tareas**: Crea una lista de tareas para reducir el estrés.
-5. **Consulta el consejo del día**: Lee un consejo diario para mejorar tu bienestar.
+¡Las contribuciones son bienvenidas! Si deseas mejorar este proyecto, sigue estos pasos:
 
----
-
-## 🖥️ Tecnologías utilizadas
-
-- **HTML**: Estructura de la aplicación.
-- **CSS**: Estilos y diseño.
-- **JavaScript**: Funcionalidad y lógica.
-- **LocalStorage**: Almacenamiento de datos en el navegador.
-- **API de Advice Slip**: Consejos diarios.
+1. Haz un **fork** del repositorio.
+2. Crea una nueva rama (`git checkout -b nueva-funcionalidad`).
+3. Realiza tus cambios y haz commit (`git commit -am 'Añade nueva funcionalidad'`).
+4. Haz push a la rama (`git push origin nueva-funcionalidad`).
+5. Abre un **Pull Request**.
 
 ---
 
-## 📂 Estructura del proyecto
+## 📄 Licencia
+
+Este proyecto está bajo la licencia **MIT**. Para más detalles, consulta el archivo [LICENSE](LICENSE).
+
+---
+
+## 🙏 Agradecimientos
+
+- **API de Advice Slip**: Por proporcionar consejos diarios.
+- **GitHub**: Por el hosting gratuito a través de GitHub Pages.
+
+---
+
+## 📧 Contacto
+
+Si tienes alguna pregunta o sugerencia, no dudes en contactarme:  
+📩 [tuemail@example.com](mailto:tuemail@example.com)  
+🐦 [@tucuenta](https://twitter.com/tucuenta)  
+💼 [LinkedIn](https://www.linkedin.com/in/tuperfil)
+Actualización del README con detalles completos del proyecto
