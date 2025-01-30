@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MindSync - Gestión del Estrés</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>MindSync</h1>
+    <p>Tu compañero para la gestión del estrés y la salud mental.</p>
+  </header>
+
+  <main>
+    <!-- Sección de registro de usuarios -->
+    <section id="user-register">
+      <h2>Regístrate</h2>
+      <form id="register-form">
+        <input type="text" id="username" placeholder="Nombre de usuario" required>
+        <input type="email" id="email" placeholder="Correo electrónico" required>
+        <button type="submit">Registrarse</button>
+      </form>
+      <p id="user-feedback"></p>
+    </section>
+
+    <!-- Sección de registro de emociones -->
+    <section id="emotion-tracker">
+      <h2>¿Cómo te sientes hoy?</h2>
+      <div class="emotions">
+        <button data-emotion="feliz">😊 Feliz</button>
+        <button data-emotion="triste">😢 Triste</button>
+        <button data-emotion="estresado">😫 Estresado</button>
+        <button data-emotion="enojado">😠 Enojado</button>
+      </div>
+      <p id="emotion-feedback"></p>
+      <h3>Historial de emociones</h3>
+      <ul id="emotion-history"></ul>
+    </section>
+
+    <!-- Sección de respiración guiada -->
+    <section id="breathing-exercise">
+      <h2>Ejercicio de Respiración</h2>
+      <div class="breathing-circle">
+        <span>Inhala... Exhala...</span>
+      </div>
+      <button id="start-breathing">Comenzar</button>
+    </section>
+
+    <!-- Sección de tareas -->
+    <section id="task-list">
+      <h2>Tareas para Reducir el Estrés</h2>
+      <form id="add-task-form">
+        <input type="text" id="new-task" placeholder="Añadir una nueva tarea" required>
+        <button type="submit">Añadir</button>
+      </form>
+      <ul id="tasks"></ul>
+    </section>
+
+    <!-- Sección de consejos -->
+    <section id="daily-tip">
+      <h2>Consejo del Día</h2>
+      <p id="tip">Cargando consejo...</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2023 MindSync. Todos los derechos reservados.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
