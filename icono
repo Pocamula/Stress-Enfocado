@@ -1,1 +1,15 @@
-<link rel="icon" type="image/svg+xml" href="assets/icono-stress-enfocado.svg">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
+  <!-- Fondo del círculo -->
+  <circle cx="50" cy="50" r="45" fill="#6c5ce7" />
+
+  <!-- Líneas onduladas (estrés) -->
+  <path d="M30,60 Q40,50 50,60 T70,60" stroke="#ffffff" stroke-width="3" fill="none" />
+  <path d="M30,50 Q40,40 50,50 T70,50" stroke="#ffffff" stroke-width="3" fill="none" />
+  <path d="M30,40 Q40,30 50,40 T70,40" stroke="#ffffff" stroke-width="3" fill="none" />
+
+  <!-- Punto central (enfoque) -->
+  <circle cx="50" cy="50" r="10" fill="#ff7675" />
+
+  <!-- Detalle del punto central -->
+  <circle cx="50" cy="50" r="5" fill="#ffffff" />
+</svg>
