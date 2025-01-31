@@ -1,4 +1,27 @@
-// En tu archivo script.js
+// Código para el "Consejo del día"
+const consejos = [
+    "Tómate un momento para respirar profundamente.",
+    "Organiza tus tareas por prioridades.",
+    "Haz una pausa cada hora para estirarte.",
+    "Mantén tu espacio de trabajo ordenado.",
+    "Dedica tiempo a actividades que te relajen.",
+    "Habla con alguien de confianza sobre cómo te sientes.",
+    "Prueba técnicas de meditación para reducir el estrés.",
+    "Escribe en un diario tus pensamientos y emociones.",
+    "Escucha música relajante para calmarte.",
+    "Date un baño caliente antes de dormir."
+];
+
+function obtenerConsejoDelDia() {
+    const fecha = new Date();
+    const diaDelAnio = Math.floor((fecha - new Date(fecha.getFullYear(), 0, 0)) / (1000 * 60 * 60 * 24));
+    const indice = diaDelAnio % consejos.length;
+    return consejos[indice];
+}
+
+document.getElementById('tip').textContent = obtenerConsejoDelDia();
+
+// Código para los botones de tareas
 const tareasSugeridas = [
     "Haz una caminata de 10 minutos.",
     "Escribe tres cosas por las que estás agradecido.",
