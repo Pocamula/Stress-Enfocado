@@ -120,12 +120,18 @@ p {
   justify-content: center;
   color: white;
   font-size: 1.2rem;
-  animation: breathe 4s infinite;
+  animation: breathe 4s infinite ease-in-out;
 }
 
 @keyframes breathe {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.2); }
+  0%, 100% { 
+    transform: scale(1); 
+    background-color: #8fbc8f;
+  }
+  50% { 
+    transform: scale(1.2); 
+    background-color: #98fb98;
+  }
 }
 
 #start-breathing {
@@ -193,6 +199,7 @@ p {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 #tasks li button {
@@ -200,4 +207,59 @@ p {
   border: none;
   padding: 5px 10px;
   font-size: 0.9rem;
-  cursor: pointer
+  cursor: pointer;
+  border-radius: 5px;
+  color: white;
+  transition: background-color 0.3s;
+}
+
+#tasks li button:hover {
+  background-color: #ff6b6b;
+}
+
+/* Estilos para el consejo del día */
+#daily-tip {
+  margin-top: 40px;
+  padding: 20px;
+  background-color: #faf0e6;
+  border-radius: 10px;
+  width: 80%;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#tip {
+  font-size: 1.2rem;
+  font-style: italic;
+  color: #556b2f;
+}
+
+/* Estilos para los botones de tareas */
+#get-suggestion, #add-suggested-task {
+  background-color: #8fbc8f;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 5px;
+  color: white;
+  transition: background-color 0.3s;
+  margin: 10px 5px;
+}
+
+#get-suggestion:hover, #add-suggested-task:hover {
+  background-color: #98fb98;
+}
+
+/* Estilos para la tarea sugerida */
+#suggestion {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #556b2f;
+  margin-top: 10px;
+  padding: 10px;
+  background-color: #faf0e6;
+  border-radius: 5px;
+  display: inline-block;
+}
