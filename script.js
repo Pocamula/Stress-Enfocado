@@ -1,58 +1,45 @@
-// Lista de tareas sugeridas para reducir el estrés
-const stressReliefTasks = [
-    "Salir a caminar 10 minutos al aire libre",
-    "Hacer respiraciones profundas durante 2 minutos",
-    "Escuchar música relajante",
-    "Tomar una taza de té o café tranquilamente",
-    "Escribir en un diario lo que sientes",
-    "Practicar una postura de yoga",
-    "Leer un capítulo de un libro",
-    "Dibujar o colorear algo",
-    "Meditar durante 5 minutos",
-    "Desconectarte de redes sociales por 30 minutos"
+// Lista de tareas sugeridas
+const tareasSugeridas = [
+    "Haz una caminata de 10 minutos.",
+    "Escribe tres cosas por las que estás agradecido.",
+    "Lee un libro durante 15 minutos.",
+    "Practica yoga o estiramientos.",
+    "Llama a un amigo o familiar.",
+    "Escucha tu canción favorita.",
+    "Prueba una nueva receta de cocina.",
+    "Dedica 5 minutos a meditar.",
+    "Organiza tu espacio de trabajo.",
+    "Haz una lista de tus metas a corto plazo."
 ];
 
-// Elementos del DOM
-const suggestionButton = document.getElementById("suggest-task"); // Corregido
-const suggestionDisplay = document.getElementById("suggestion");
-const taskList = document.getElementById("tasks");
-const addSuggestedTaskButton = document.getElementById("add-suggested-task");
+// Función para sugerir una tarea aleatoria
+document.getElementById('get-suggestion').addEventListener('click', () => {
+    const tareaAleatoria = tareasSugeridas[Math.floor(Math.random() * tareasSugeridas.length)];
+    document.getElementById('suggestion').textContent = tareaAleatoria;
+});
 
-// Función para mostrar una sugerencia aleatoria
-function suggestTask() {
-    const randomIndex = Math.floor(Math.random() * stressReliefTasks.length);
-    suggestionDisplay.textContent = stressReliefTasks[randomIndex];
-}
-
-// Función para agregar la sugerencia como tarea
-function addSuggestedTask() {
-    if (suggestionDisplay.textContent !== "") {
-        const taskItem = document.createElement("li");
-        taskItem.textContent = suggestionDisplay.textContent;
-        
-        // Agregar un botón para eliminar la tarea
-        const deleteButton = document.createElement("button");
-        deleteButton.textContent = "Eliminar";
-        deleteButton.onclick = () => taskList.removeChild(taskItem);
-        
-        taskItem.appendChild(deleteButton);
-        taskList.appendChild(taskItem);
-        
-        // Limpiar la sugerencia después de agregarla
-        suggestionDisplay.textContent = "";
+// Función para añadir la tarea sugerida a la lista
+document.getElementById('add-suggested-task').addEventListener('click', () => {
+    const tareaSugerida = document.getElementById('suggestion').textContent;
+    if (tareaSugerida) {
+        agregarTareaALista(tareaSugerida);
     }
+});
+
+// Función para añadir una tarea manual
+document.getElementById('add-task-form').addEventListener('submit', (e) => {
+    e.preventDefault();
+    const nuevaTarea = document.getElementById('new-task').value;
+    if (nuevaTarea) {
+        agregarTareaALista(nuevaTarea);
+        document.getElementById('new-task').value = ''; // Limpiar el campo de entrada
+    }
+});
+
+// Función para agregar una tarea a la lista
+function agregarTareaALista(tarea) {
+    const listaTareas = document.getElementById('tasks');
+    const nuevaTarea = document.createElement('li');
+    nuevaTarea.textContent = tarea;
+    listaTareas.appendChild(nuevaTarea);
 }
-
-// Eventos
-suggestionButton.addEventListener("click", suggestTask);
-addSuggestedTaskButton.addEventListener("click", addSuggestedTask);
-
-// Función para obtener el consejo del día
-async function fetchDailyTip() {
-    const response = await fetch('https://api.adviceslip.com/advice');
-    const data = await response.json();
-    document.getElementById("tip").textContent = data.slip.advice;
-}
-
-// Obtener el consejo al cargar la página
-fetchDailyTip();
