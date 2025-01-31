@@ -9,257 +9,106 @@ body {
 }
 
 header {
-  background-color: #556b2f;
+  background-color: #445d27;
   color: white;
   padding: 20px;
 }
 
 h1 {
   margin: 0;
-  font-size: 2.5rem;
+  font-size: 2.8rem;
+  font-weight: bold;
 }
 
 p {
   font-size: 1.2rem;
 }
 
-/* Sección de registro de usuarios */
-#user-register {
-  margin-top: 20px;
-}
-
-#register-form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 10px;
-}
-
+/* Sección de registro */
 #register-form input {
-  padding: 10px;
+  padding: 12px;
   width: 80%;
-  max-width: 300px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
+  max-width: 320px;
+  border: 2px solid #6b8e23;
+  border-radius: 8px;
+  background-color: #f5f5dc;
 }
 
 #register-form button {
-  background-color: #8fbc8f;
-  border: none;
-  padding: 10px 20px;
+  background-color: #6b8e23;
+  padding: 12px 24px;
   font-size: 1rem;
-  cursor: pointer;
-  border-radius: 5px;
+  font-weight: bold;
+  border-radius: 8px;
   color: white;
-  transition: background-color 0.3s;
+  transition: all 0.3s ease-in-out;
 }
 
 #register-form button:hover {
-  background-color: #98fb98;
-}
-
-#user-feedback {
-  margin-top: 10px;
-  font-weight: bold;
+  background-color: #556b2f;
 }
 
 /* Sección de emociones */
-#emotion-tracker .emotions {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-  margin-top: 20px;
-}
-
-#emotion-tracker button {
-  background-color: #8fbc8f;
-  border: none;
-  padding: 10px 20px;
+#emotion-tracker .emotions button {
+  background-color: #6b8e23;
+  border-radius: 50px;
   font-size: 1rem;
-  cursor: pointer;
-  border-radius: 5px;
-  transition: background-color 0.3s;
+  padding: 10px 18px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
 }
 
 #emotion-tracker button:hover {
-  background-color: #98fb98;
-}
-
-#emotion-feedback {
-  margin-top: 10px;
-  font-weight: bold;
-}
-
-#emotion-history {
-  list-style: none;
-  padding: 0;
-}
-
-#emotion-history li {
-  background-color: #faf0e6;
-  margin: 10px auto;
-  padding: 10px;
-  width: 80%;
-  border-radius: 5px;
-  text-align: left;
+  background-color: #4f6f1d;
 }
 
 /* Sección de respiración */
-#breathing-exercise {
-  margin-top: 40px;
-}
-
 .breathing-circle {
-  width: 150px;
-  height: 150px;
-  background-color: #8fbc8f;
-  border-radius: 50%;
-  margin: 20px auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  font-size: 1.2rem;
-  animation: breathe 4s infinite ease-in-out;
+  width: 160px;
+  height: 160px;
+  background-color: #6b8e23;
+  font-size: 1.4rem;
+  animation: breathe 6s infinite ease-in-out;
+  box-shadow: 0 0 15px rgba(107, 142, 35, 0.5);
 }
 
 @keyframes breathe {
-  0%, 100% { 
-    transform: scale(1); 
-    background-color: #8fbc8f;
-  }
-  50% { 
-    transform: scale(1.2); 
-    background-color: #98fb98;
-  }
-}
-
-#start-breathing {
-  background-color: #8fbc8f;
-  border: none;
-  padding: 10px 20px;
-  font-size: 1rem;
-  cursor: pointer;
-  border-radius: 5px;
-  color: white;
-  transition: background-color 0.3s;
-}
-
-#start-breathing:hover {
-  background-color: #98fb98;
+  0%, 100% { transform: scale(1); background-color: #6b8e23; }
+  50% { transform: scale(1.3); background-color: #9acd32; }
 }
 
 /* Sección de tareas */
-#task-list {
-  margin-top: 40px;
-}
-
-#add-task-form {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-  margin-bottom: 20px;
-}
-
-#new-task {
-  padding: 10px;
-  width: 60%;
-  max-width: 300px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-}
-
-#add-task-form button {
-  background-color: #8fbc8f;
-  border: none;
-  padding: 10px 20px;
-  font-size: 1rem;
-  cursor: pointer;
-  border-radius: 5px;
-  color: white;
-  transition: background-color 0.3s;
-}
-
-#add-task-form button:hover {
-  background-color: #98fb98;
-}
-
-#tasks {
-  list-style: none;
-  padding: 0;
-}
-
 #tasks li {
-  background-color: #faf0e6;
-  margin: 10px auto;
-  padding: 10px;
-  width: 80%;
-  border-radius: 5px;
-  text-align: left;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: #fffaf0;
+  border: 1px solid #6b8e23;
+  padding: 12px;
+  border-radius: 8px;
+  transition: all 0.3s ease-in-out;
+}
+
+#tasks li:hover {
+  background-color: #f0e68c;
+  transform: scale(1.02);
 }
 
 #tasks li button {
-  background-color: #cd5c5c;
-  border: none;
-  padding: 5px 10px;
+  background-color: #b22222;
   font-size: 0.9rem;
-  cursor: pointer;
-  border-radius: 5px;
-  color: white;
-  transition: background-color 0.3s;
 }
 
 #tasks li button:hover {
-  background-color: #ff6b6b;
+  background-color: #ff6347;
 }
 
-/* Estilos para el consejo del día */
+/* Consejo del día */
 #daily-tip {
-  margin-top: 40px;
-  padding: 20px;
-  background-color: #faf0e6;
-  border-radius: 10px;
-  width: 80%;
-  max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;
+  background-color: #fff8dc;
+  border: 2px solid #6b8e23;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
 }
 
 #tip {
-  font-size: 1.2rem;
+  color: #556b2f;
   font-style: italic;
-  color: #556b2f;
-}
-
-/* Estilos para los botones de tareas */
-#get-suggestion, #add-suggested-task {
-  background-color: #8fbc8f;
-  border: none;
-  padding: 10px 20px;
-  font-size: 1rem;
-  cursor: pointer;
-  border-radius: 5px;
-  color: white;
-  transition: background-color 0.3s;
-  margin: 10px 5px;
-}
-
-#get-suggestion:hover, #add-suggested-task:hover {
-  background-color: #98fb98;
-}
-
-/* Estilos para la tarea sugerida */
-#suggestion {
-  font-size: 1.1rem;
   font-weight: bold;
-  color: #556b2f;
-  margin-top: 10px;
-  padding: 10px;
-  background-color: #faf0e6;
-  border-radius: 5px;
-  display: inline-block;
 }
