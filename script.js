@@ -16,6 +16,7 @@ const stressReliefTasks = [
 const suggestionButton = document.getElementById("get-suggestion");
 const suggestionDisplay = document.getElementById("suggestion");
 const taskList = document.getElementById("tasks");
+const addSuggestedTaskButton = document.getElementById("add-suggested-task");
 
 // Función para mostrar una sugerencia aleatoria
 function suggestTask() {
@@ -44,4 +45,4 @@ function addSuggestedTask() {
 
 // Eventos
 suggestionButton.addEventListener("click", suggestTask);
-document.getElementById("add-suggested-task").addEventListener("click", addSuggestedTask);
+addSuggestedTaskButton.addEventListener("click", addSuggestedTask);
