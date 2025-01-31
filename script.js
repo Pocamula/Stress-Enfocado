@@ -21,6 +21,51 @@ function obtenerConsejoDelDia() {
 
 document.getElementById('tip').textContent = obtenerConsejoDelDia();
 
+// Código para los botones de emociones
+const emociones = document.querySelectorAll('.emotions button');
+const emotionFeedback = document.getElementById('emotion-feedback');
+const emotionHistory = document.getElementById('emotion-history');
+
+emociones.forEach(boton => {
+    boton.addEventListener('click', () => {
+        const emocion = boton.getAttribute('data-emotion');
+        emotionFeedback.textContent = `Te sientes ${emocion}.`;
+        
+        // Añadir la emoción al historial
+        const nuevaEntrada = document.createElement('li');
+        nuevaEntrada.textContent = `Te sentiste ${emocion} el ${new Date().toLocaleString()}.`;
+        emotionHistory.appendChild(nuevaEntrada);
+    });
+});
+
+// Código para el ejercicio de respiración
+const breathingCircle = document.getElementById('breathing-circle');
+const startBreathingButton = document.getElementById('start-breathing');
+
+let breathingInterval;
+
+startBreathingButton.addEventListener('click', () => {
+    if (breathingInterval) {
+        clearInterval(breathingInterval);
+        breathingInterval = null;
+        startBreathingButton.textContent = 'Comenzar';
+        breathingCircle.style.transform = 'scale(1)';
+    } else {
+        startBreathingButton.textContent = 'Detener';
+        let isInhaling = true;
+        breathingInterval = setInterval(() => {
+            if (isInhaling) {
+                breathingCircle.style.transform = 'scale(1.2)';
+                breathingCircle.textContent = 'Inhala';
+            } else {
+                breathingCircle.style.transform = 'scale(1)';
+                breathingCircle.textContent = 'Exhala';
+            }
+            isInhaling = !isInhaling;
+        }, 4000); // Cambia cada 4 segundos
+    }
+});
+
 // Código para los botones de tareas
 const tareasSugeridas = [
     "Haz una caminata de 10 minutos.",
