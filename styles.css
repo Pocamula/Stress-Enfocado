@@ -1,15 +1,15 @@
 /* Estilos generales */
 body {
   font-family: 'Arial', sans-serif;
-  background-color: #f4f4f9;
-  color: #333;
+  background-color: #f0ede5;
+  color: #4a4a4a;
   margin: 0;
   padding: 0;
   text-align: center;
 }
 
-header, footer {
-  background-color: #6c5ce7;
+header {
+  background-color: #6a994e;
   color: white;
   padding: 20px;
 }
@@ -23,88 +23,42 @@ p {
   font-size: 1.2rem;
 }
 
-/* Botones generales */
-.btn-primary {
-  background-color: #00b894;
-  border: none;
-  padding: 10px 20px;
-  font-size: 1rem;
-  cursor: pointer;
-  border-radius: 5px;
-  color: white;
-  transition: background-color 0.3s;
+/* Sección de registro de usuarios */
+#user-register {
+  margin-top: 20px;
+  max-height: 400px;
+  overflow-y: auto;
 }
 
-.btn-primary:hover {
-  background-color: #55efc4;
-}
-
-.btn-danger {
-  background-color: #ff7675;
-  border: none;
-  padding: 5px 10px;
-  font-size: 0.9rem;
-  cursor: pointer;
-  border-radius: 5px;
-  color: white;
-  transition: background-color 0.3s;
-}
-
-.btn-danger:hover {
-  background-color: #d63031;
-}
-
-/* Formulario */
-.form-container {
+#register-form {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 10px;
-  margin-top: 20px;
 }
 
-input {
+#register-form input {
   padding: 10px;
   width: 80%;
   max-width: 300px;
-  border: 1px solid #ccc;
+  border: 1px solid #b7b7a4;
   border-radius: 5px;
+  background-color: #e9edc9;
 }
 
-/* Sección de emociones */
-#emotion-tracker .emotions {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-  margin-top: 20px;
-}
-
-#emotion-tracker button {
-  background-color: #a29bfe;
+#register-form button {
+  background-color: #a98467;
   border: none;
   padding: 10px 20px;
   font-size: 1rem;
   cursor: pointer;
   border-radius: 5px;
+  color: white;
   transition: background-color 0.3s;
 }
 
-#emotion-tracker button:hover {
-  background-color: #81ecec;
-}
-
-#emotion-history {
-  list-style: none;
-  padding: 0;
-}
-
-#emotion-history li {
-  background-color: #dfe6e9;
-  margin: 10px auto;
-  padding: 10px;
-  width: 80%;
-  border-radius: 5px;
-  text-align: left;
+#register-form button:hover {
+  background-color: #b08968;
 }
 
 /* Sección de respiración */
@@ -115,7 +69,7 @@ input {
 .breathing-circle {
   width: 150px;
   height: 150px;
-  background-color: #74b9ff;
+  background-color: #6a994e;
   border-radius: 50%;
   margin: 20px auto;
   display: flex;
@@ -123,50 +77,26 @@ input {
   justify-content: center;
   color: white;
   font-size: 1.2rem;
-  animation: breathe 4s infinite ease-in-out;
+  animation: breathe 4s infinite alternate;
 }
 
 @keyframes breathe {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.1); }
+  0% { transform: scale(1); content: "Inhala"; }
+  50% { transform: scale(1.2); content: "Exhala"; }
+  100% { transform: scale(1); content: "Inhala"; }
 }
 
-/* Sección de tareas */
-#task-list {
-  margin-top: 40px;
-}
-
-#add-task-form {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-  margin-bottom: 20px;
-}
-
-#tasks {
-  list-style: none;
-  padding: 0;
-}
-
-#tasks li {
-  background-color: #dfe6e9;
-  margin: 10px auto;
-  padding: 10px;
-  width: 80%;
+#start-breathing {
+  background-color: #6a994e;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1rem;
+  cursor: pointer;
   border-radius: 5px;
-  text-align: left;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  color: white;
+  transition: background-color 0.3s;
 }
 
-/* Sección de consejos */
-#daily-tip {
-  margin-top: 40px;
-  padding: 20px;
-  background-color: #f1c40f;
-  border-radius: 10px;
-  width: 80%;
-  margin: 40px auto;
-  font-weight: bold;
+#start-breathing:hover {
+  background-color: #a7c957;
 }
