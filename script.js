@@ -43,3 +43,20 @@ function agregarTareaALista(tarea) {
     nuevaTarea.textContent = tarea;
     listaTareas.appendChild(nuevaTarea);
 }
+
+// ====== NUEVA FUNCIÓN PARA OBTENER EL CONSEJO DEL DÍA ======
+async function obtenerConsejo() {
+    try {
+        const respuesta = await fetch('https://api.adviceslip.com/advice');
+        if (!respuesta.ok) throw new Error('No se pudo obtener el consejo');
+
+        const datos = await respuesta.json();
+        document.getElementById('advice').textContent = datos.slip.advice;
+    } catch (error) {
+        console.error('Error al obtener el consejo:', error);
+        document.getElementById('advice').textContent = 'No se pudo cargar el consejo. Inténtalo más tarde.';
+    }
+}
+
+// Cargar el consejo del día al iniciar la página
+window.addEventListener('load', obtenerConsejo);
