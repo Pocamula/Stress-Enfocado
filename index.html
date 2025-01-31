@@ -48,11 +48,19 @@
     <!-- Sección de tareas -->
     <section id="task-list">
       <h2>Tareas para Reducir el Estrés</h2>
+      <!-- Formulario para añadir una nueva tarea -->
       <form id="add-task-form">
         <input type="text" id="new-task" placeholder="Añadir una nueva tarea" required>
         <button type="submit">Añadir</button>
       </form>
-      <button id="suggest-task">Sugerir Tarea</button>
+      <!-- Botón para sugerir una tarea aleatoria -->
+      <button id="get-suggestion">Sugerir tarea</button>
+      <button id="add-suggested-task">Añadir tarea sugerida</button>
+      
+      <!-- Espacio donde se mostrará la tarea sugerida -->
+      <p id="suggestion"></p>
+
+      <!-- Lista de tareas agregadas -->
       <ul id="tasks"></ul>
     </section>
 
