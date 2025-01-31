@@ -60,3 +60,22 @@ async function obtenerConsejo() {
 
 // Cargar el consejo del día al iniciar la página
 window.addEventListener('load', obtenerConsejo);
+document.addEventListener("DOMContentLoaded", () => {
+    obtenerConsejo();
+});
+
+// Función para obtener el consejo del día
+async function obtenerConsejo() {
+    try {
+        const respuesta = await fetch("https://api.adviceslip.com/advice");
+        if (!respuesta.ok) {
+            throw new Error(`HTTP error! Status: ${respuesta.status}`);
+        }
+
+        const datos = await respuesta.json();
+        document.getElementById("tip").textContent = datos.slip.advice;
+    } catch (error) {
+        console.error("Error al obtener el consejo:", error);
+        document.getElementById("tip").textContent = "No se pudo cargar el consejo del día.";
+    }
+}
