@@ -13,7 +13,7 @@ const stressReliefTasks = [
 ];
 
 // Elementos del DOM
-const suggestionButton = document.getElementById("get-suggestion");
+const suggestionButton = document.getElementById("suggest-task"); // Corregido
 const suggestionDisplay = document.getElementById("suggestion");
 const taskList = document.getElementById("tasks");
 const addSuggestedTaskButton = document.getElementById("add-suggested-task");
@@ -46,3 +46,13 @@ function addSuggestedTask() {
 // Eventos
 suggestionButton.addEventListener("click", suggestTask);
 addSuggestedTaskButton.addEventListener("click", addSuggestedTask);
+
+// Función para obtener el consejo del día
+async function fetchDailyTip() {
+    const response = await fetch('https://api.adviceslip.com/advice');
+    const data = await response.json();
+    document.getElementById("tip").textContent = data.slip.advice;
+}
+
+// Obtener el consejo al cargar la página
+fetchDailyTip();
