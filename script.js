@@ -4,10 +4,14 @@ const userFeedback = document.getElementById("user-feedback");
 
 registerForm.addEventListener("submit", (e) => {
   e.preventDefault();
-  const username = document.getElementById("username").value;
-  const email = document.getElementById("email").value;
+  const username = document.getElementById("username").value.trim();
+  const email = document.getElementById("email").value.trim();
 
-  // Guardar en LocalStorage
+  if (!username || !email) {
+    alert("Por favor, completa todos los campos.");
+    return;
+  }
+
   localStorage.setItem("username", username);
   localStorage.setItem("email", email);
 
@@ -33,7 +37,6 @@ emotionButtons.forEach((button) => {
     const emotion = button.getAttribute("data-emotion");
     emotionFeedback.textContent = `Has seleccionado: ${emotion}. ¡Gracias por compartir!`;
 
-    // Guardar la emoción en el historial
     emotions.push({ emotion, date: new Date().toLocaleString() });
     localStorage.setItem("emotions", JSON.stringify(emotions));
 
@@ -69,16 +72,28 @@ const updateTasks = () => {
       (task, index) => `
     <li>
       ${task}
-      <button onclick="deleteTask(${index})">Eliminar</button>
+      <button class="delete-task" data-index="${index}">Eliminar</button>
     </li>
   `
     )
     .join("");
+
+  document.querySelectorAll(".delete-task").forEach((button) => {
+    button.addEventListener("click", (e) => {
+      deleteTask(e.target.dataset.index);
+    });
+  });
 };
 
 addTaskForm.addEventListener("submit", (e) => {
   e.preventDefault();
-  const newTask = document.getElementById("new-task").value;
+  const newTask = document.getElementById("new-task").value.trim();
+
+  if (!newTask) {
+    alert("Por favor, ingresa una tarea.");
+    return;
+  }
+
   tasks.push(newTask);
   localStorage.setItem("tasks", JSON.stringify(tasks));
   updateTasks();
@@ -93,17 +108,32 @@ const deleteTask = (index) => {
 
 updateTasks();
 
-// Consejo del día (usando una API pública)
+// Consejo del día (persistente en LocalStorage)
 const tipElement = document.getElementById("tip");
+const today = new Date().toLocaleDateString();
+const savedTip = localStorage.getItem("dailyTip");
+const savedDate = localStorage.getItem("tipDate");
 
-fetch("https://api.adviceslip.com/advice")
-  .then((response) => response.json())
-  .then((data) => {
-    tipElement.textContent = data.slip.advice;
-  })
-  .catch(() => {
-    tipElement.textContent = "Hoy es un buen día para respirar profundamente.";
-  });
+const fetchNewTip = () => {
+  fetch("https://api.adviceslip.com/advice")
+    .then((response) => response.json())
+    .then((data) => {
+      const tip = data.slip.advice;
+      localStorage.setItem("dailyTip", tip);
+      localStorage.setItem("tipDate", today);
+      tipElement.textContent = tip;
+    })
+    .catch(() => {
+      tipElement.textContent = "Hoy es un buen día para respirar profundamente.";
+    });
+};
+
+// Mostrar consejo almacenado o generar uno nuevo
+if (savedDate === today && savedTip) {
+  tipElement.textContent = savedTip;
+} else {
+  fetchNewTip();
+}
 
 // Notificaciones push (simuladas con alertas)
 setTimeout(() => {
