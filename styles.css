@@ -1,15 +1,15 @@
 /* Estilos generales */
 body {
   font-family: 'Arial', sans-serif;
-  background-color: #f0ede5;
-  color: #4a4a4a;
+  background-color: #f5f5dc;
+  color: #2f4f4f;
   margin: 0;
   padding: 0;
   text-align: center;
 }
 
 header {
-  background-color: #6a994e;
+  background-color: #556b2f;
   color: white;
   padding: 20px;
 }
@@ -26,8 +26,6 @@ p {
 /* Sección de registro de usuarios */
 #user-register {
   margin-top: 20px;
-  max-height: 400px;
-  overflow-y: auto;
 }
 
 #register-form {
@@ -41,13 +39,12 @@ p {
   padding: 10px;
   width: 80%;
   max-width: 300px;
-  border: 1px solid #b7b7a4;
+  border: 1px solid #ccc;
   border-radius: 5px;
-  background-color: #e9edc9;
 }
 
 #register-form button {
-  background-color: #a98467;
+  background-color: #8fbc8f;
   border: none;
   padding: 10px 20px;
   font-size: 1rem;
@@ -58,7 +55,53 @@ p {
 }
 
 #register-form button:hover {
-  background-color: #b08968;
+  background-color: #98fb98;
+}
+
+#user-feedback {
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+/* Sección de emociones */
+#emotion-tracker .emotions {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+#emotion-tracker button {
+  background-color: #8fbc8f;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+#emotion-tracker button:hover {
+  background-color: #98fb98;
+}
+
+#emotion-feedback {
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+#emotion-history {
+  list-style: none;
+  padding: 0;
+}
+
+#emotion-history li {
+  background-color: #faf0e6;
+  margin: 10px auto;
+  padding: 10px;
+  width: 80%;
+  border-radius: 5px;
+  text-align: left;
 }
 
 /* Sección de respiración */
@@ -69,7 +112,7 @@ p {
 .breathing-circle {
   width: 150px;
   height: 150px;
-  background-color: #6a994e;
+  background-color: #8fbc8f;
   border-radius: 50%;
   margin: 20px auto;
   display: flex;
@@ -77,17 +120,16 @@ p {
   justify-content: center;
   color: white;
   font-size: 1.2rem;
-  animation: breathe 4s infinite alternate;
+  animation: breathe 4s infinite;
 }
 
 @keyframes breathe {
-  0% { transform: scale(1); content: "Inhala"; }
-  50% { transform: scale(1.2); content: "Exhala"; }
-  100% { transform: scale(1); content: "Inhala"; }
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.2); }
 }
 
 #start-breathing {
-  background-color: #6a994e;
+  background-color: #8fbc8f;
   border: none;
   padding: 10px 20px;
   font-size: 1rem;
@@ -98,5 +140,64 @@ p {
 }
 
 #start-breathing:hover {
-  background-color: #a7c957;
+  background-color: #98fb98;
 }
+
+/* Sección de tareas */
+#task-list {
+  margin-top: 40px;
+}
+
+#add-task-form {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+#new-task {
+  padding: 10px;
+  width: 60%;
+  max-width: 300px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+#add-task-form button {
+  background-color: #8fbc8f;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 5px;
+  color: white;
+  transition: background-color 0.3s;
+}
+
+#add-task-form button:hover {
+  background-color: #98fb98;
+}
+
+#tasks {
+  list-style: none;
+  padding: 0;
+}
+
+#tasks li {
+  background-color: #faf0e6;
+  margin: 10px auto;
+  padding: 10px;
+  width: 80%;
+  border-radius: 5px;
+  text-align: left;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#tasks li button {
+  background-color: #cd5c5c;
+  border: none;
+  padding: 5px 10px;
+  font-size: 0.9rem;
+  cursor: pointer
