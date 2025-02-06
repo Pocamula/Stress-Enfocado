@@ -23,6 +23,32 @@ p {
   font-size: 1.2rem;
 }
 
+/* Botón de ayuda profesional */
+.help-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #556b2f;
+  color: white;
+  padding: 12px 20px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.help-button:hover {
+  background-color: #6b8e23;
+  transform: scale(1.05);
+}
+
+.help-button:active {
+  background-color: #4f6622;
+  transform: scale(0.98);
+}
+
 /* Sección de registro de usuarios */
 #user-register {
   margin-top: 20px;
@@ -44,7 +70,7 @@ p {
 }
 
 #register-form button {
-  background-color: #8fbc8f;
+  background-color: #6b8e23;
   border: none;
   padding: 10px 20px;
   font-size: 1rem;
@@ -55,211 +81,10 @@ p {
 }
 
 #register-form button:hover {
-  background-color: #98fb98;
+  background-color: #556b2f;
 }
 
 #user-feedback {
   margin-top: 10px;
   font-weight: bold;
-}
-
-/* Sección de emociones */
-#emotion-tracker .emotions {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-  margin-top: 20px;
-}
-
-#emotion-tracker button {
-  background-color: #8fbc8f;
-  border: none;
-  padding: 10px 20px;
-  font-size: 1rem;
-  cursor: pointer;
-  border-radius: 5px;
-  transition: background-color 0.3s;
-}
-
-#emotion-tracker button:hover {
-  background-color: #98fb98;
-}
-
-#emotion-feedback {
-  margin-top: 10px;
-  font-weight: bold;
-}
-
-#emotion-history {
-  list-style: none;
-  padding: 0;
-}
-
-#emotion-history li {
-  background-color: #faf0e6;
-  margin: 10px auto;
-  padding: 10px;
-  width: 80%;
-  border-radius: 5px;
-  text-align: left;
-}
-
-/* Sección de respiración */
-#breathing-exercise {
-  margin-top: 40px;
-}
-
-.breathing-circle {
-  width: 150px;
-  height: 150px;
-  background-color: #8fbc8f;
-  border-radius: 50%;
-  margin: 20px auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  font-size: 1.2rem;
-  animation: breathe 4s infinite ease-in-out;
-}
-
-@keyframes breathe {
-  0%, 100% { 
-    transform: scale(1); 
-    background-color: #8fbc8f;
-  }
-  50% { 
-    transform: scale(1.2); 
-    background-color: #98fb98;
-  }
-}
-
-#start-breathing {
-  background-color: #8fbc8f;
-  border: none;
-  padding: 10px 20px;
-  font-size: 1rem;
-  cursor: pointer;
-  border-radius: 5px;
-  color: white;
-  transition: background-color 0.3s;
-}
-
-#start-breathing:hover {
-  background-color: #98fb98;
-}
-
-/* Sección de tareas */
-#task-list {
-  margin-top: 40px;
-}
-
-#add-task-form {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-  margin-bottom: 20px;
-}
-
-#new-task {
-  padding: 10px;
-  width: 60%;
-  max-width: 300px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-}
-
-#add-task-form button {
-  background-color: #8fbc8f;
-  border: none;
-  padding: 10px 20px;
-  font-size: 1rem;
-  cursor: pointer;
-  border-radius: 5px;
-  color: white;
-  transition: background-color 0.3s;
-}
-
-#add-task-form button:hover {
-  background-color: #98fb98;
-}
-
-#tasks {
-  list-style: none;
-  padding: 0;
-}
-
-#tasks li {
-  background-color: #faf0e6;
-  margin: 10px auto;
-  padding: 10px;
-  width: 80%;
-  border-radius: 5px;
-  text-align: left;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-#tasks li button {
-  background-color: #cd5c5c;
-  border: none;
-  padding: 5px 10px;
-  font-size: 0.9rem;
-  cursor: pointer;
-  border-radius: 5px;
-  color: white;
-  transition: background-color 0.3s;
-}
-
-#tasks li button:hover {
-  background-color: #ff6b6b;
-}
-
-/* Estilos para el consejo del día */
-#daily-tip {
-  margin-top: 40px;
-  padding: 20px;
-  background-color: #faf0e6;
-  border-radius: 10px;
-  width: 80%;
-  max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-#tip {
-  font-size: 1.2rem;
-  font-style: italic;
-  color: #556b2f;
-}
-
-/* Estilos para los botones de tareas */
-#get-suggestion, #add-suggested-task {
-  background-color: #8fbc8f;
-  border: none;
-  padding: 10px 20px;
-  font-size: 1rem;
-  cursor: pointer;
-  border-radius: 5px;
-  color: white;
-  transition: background-color 0.3s;
-  margin: 10px 5px;
-}
-
-#get-suggestion:hover, #add-suggested-task:hover {
-  background-color: #98fb98;
-}
-
-/* Estilos para la tarea sugerida */
-#suggestion {
-  font-size: 1.1rem;
-  font-weight: bold;
-  color: #556b2f;
-  margin-top: 10px;
-  padding: 10px;
-  background-color: #faf0e6;
-  border-radius: 5px;
-  display: inline-block;
 }
