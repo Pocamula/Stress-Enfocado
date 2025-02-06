@@ -15,8 +15,7 @@ const consejos = [
 function obtenerConsejoDelDia() {
     const fecha = new Date();
     const diaDelAnio = Math.floor((fecha - new Date(fecha.getFullYear(), 0, 0)) / (1000 * 60 * 60 * 24));
-    const indice = diaDelAnio % consejos.length;
-    return consejos[indice];
+    return consejos[diaDelAnio % consejos.length];
 }
 
 document.getElementById('tip').textContent = obtenerConsejoDelDia();
@@ -26,15 +25,29 @@ const emociones = document.querySelectorAll('.emotions button');
 const emotionFeedback = document.getElementById('emotion-feedback');
 const emotionHistory = document.getElementById('emotion-history');
 
+let ultimaEmocion = null;
+const limiteHistorial = 5; // Número máximo de emociones en el historial
+
 emociones.forEach(boton => {
     boton.addEventListener('click', () => {
         const emocion = boton.getAttribute('data-emotion');
+
+        // Evita registrar la misma emoción consecutivamente
+        if (ultimaEmocion === emocion) return;
+        ultimaEmocion = emocion;
+
+        // Mostrar la emoción actual
         emotionFeedback.textContent = `Te sientes ${emocion}.`;
-        
-        // Añadir la emoción al historial
+
+        // Añadir la emoción al historial con un límite de entradas
         const nuevaEntrada = document.createElement('li');
         nuevaEntrada.textContent = `Te sentiste ${emocion} el ${new Date().toLocaleString()}.`;
         emotionHistory.appendChild(nuevaEntrada);
+
+        // Elimina la entrada más antigua si se supera el límite
+        if (emotionHistory.children.length > limiteHistorial) {
+            emotionHistory.removeChild(emotionHistory.firstChild);
+        }
     });
 });
 
@@ -42,7 +55,7 @@ emociones.forEach(boton => {
 const breathingCircle = document.getElementById('breathing-circle');
 const startBreathingButton = document.getElementById('start-breathing');
 
-let breathingInterval;
+let breathingInterval = null;
 
 startBreathingButton.addEventListener('click', () => {
     if (breathingInterval) {
@@ -50,19 +63,15 @@ startBreathingButton.addEventListener('click', () => {
         breathingInterval = null;
         startBreathingButton.textContent = 'Comenzar';
         breathingCircle.style.transform = 'scale(1)';
+        breathingCircle.textContent = '';
     } else {
         startBreathingButton.textContent = 'Detener';
         let isInhaling = true;
         breathingInterval = setInterval(() => {
-            if (isInhaling) {
-                breathingCircle.style.transform = 'scale(1.2)';
-                breathingCircle.textContent = 'Inhala';
-            } else {
-                breathingCircle.style.transform = 'scale(1)';
-                breathingCircle.textContent = 'Exhala';
-            }
+            breathingCircle.style.transform = isInhaling ? 'scale(1.2)' : 'scale(1)';
+            breathingCircle.textContent = isInhaling ? 'Inhala' : 'Exhala';
             isInhaling = !isInhaling;
-        }, 4000); // Cambia cada 4 segundos
+        }, 4000);
     }
 });
 
@@ -94,19 +103,20 @@ document.getElementById('add-suggested-task').addEventListener('click', () => {
 
 document.getElementById('add-task-form').addEventListener('submit', (e) => {
     e.preventDefault();
-    const nuevaTarea = document.getElementById('new-task').value;
+    const nuevaTarea = document.getElementById('new-task').value.trim();
     if (nuevaTarea) {
         agregarTareaALista(nuevaTarea);
-        document.getElementById('new-task').value = ''; // Limpiar el campo de entrada
+        document.getElementById('new-task').value = ''; // Limpiar el campo
+    } else {
+        alert('Por favor, ingresa una tarea válida.');
     }
 });
 
 function agregarTareaALista(tarea) {
     const listaTareas = document.getElementById('tasks');
-    
-    // Verificar si la tarea ya existe en la lista
-    const tareasExistentes = Array.from(listaTareas.getElementsByTagName('li'));
-    const tareaRepetida = tareasExistentes.some(item => item.textContent === tarea);
+
+    // Verificar si la tarea ya existe
+    const tareaRepetida = Array.from(listaTareas.getElementsByTagName('li')).some(item => item.textContent === tarea);
 
     if (!tareaRepetida) {
         const nuevaTarea = document.createElement('li');
