@@ -263,3 +263,26 @@ p {
   border-radius: 5px;
   display: inline-block;
 }
+
+/* Estilos para el botón "Consulta con un psiquiatra" */
+#consult-button {
+    background-color: #8fbc8f; /* Verde suave, consistente con otros botones */
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 5px;
+    color: white;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Sombra sutil */
+    margin: 10px 0; /* Espaciado */
+}
+
+#consult-button:hover {
+    background-color: #98fb98; /* Cambio de color al pasar el mouse */
+    transform: translateY(-2px); /* Efecto de elevación */
+}
+
+#consult-button:active {
+    transform: translateY(0); /* Efecto de clic */
+}
