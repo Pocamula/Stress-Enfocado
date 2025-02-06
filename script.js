@@ -103,7 +103,16 @@ document.getElementById('add-task-form').addEventListener('submit', (e) => {
 
 function agregarTareaALista(tarea) {
     const listaTareas = document.getElementById('tasks');
-    const nuevaTarea = document.createElement('li');
-    nuevaTarea.textContent = tarea;
-    listaTareas.appendChild(nuevaTarea);
+    
+    // Verificar si la tarea ya existe en la lista
+    const tareasExistentes = Array.from(listaTareas.getElementsByTagName('li'));
+    const tareaRepetida = tareasExistentes.some(item => item.textContent === tarea);
+
+    if (!tareaRepetida) {
+        const nuevaTarea = document.createElement('li');
+        nuevaTarea.textContent = tarea;
+        listaTareas.appendChild(nuevaTarea);
+    } else {
+        alert('Esta tarea ya ha sido añadida.');
+    }
 }
