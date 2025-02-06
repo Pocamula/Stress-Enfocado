@@ -126,3 +126,25 @@ function agregarTareaALista(tarea) {
         alert('Esta tarea ya ha sido añadida.');
     }
 }
+
+// Botón para pedir ayuda profesional
+document.addEventListener('DOMContentLoaded', () => {
+    const helpButton = document.createElement('button');
+    helpButton.textContent = 'Hablar con un psiquiatra';
+    helpButton.style.position = 'fixed';
+    helpButton.style.bottom = '20px';
+    helpButton.style.right = '20px';
+    helpButton.style.padding = '10px 15px';
+    helpButton.style.backgroundColor = '#ff5733';
+    helpButton.style.color = 'white';
+    helpButton.style.border = 'none';
+    helpButton.style.borderRadius = '5px';
+    helpButton.style.cursor = 'pointer';
+    helpButton.style.boxShadow = '2px 2px 5px rgba(0,0,0,0.3)';
+
+    helpButton.addEventListener('click', () => {
+        window.open('https://www.justanswer.com/sip/psychiatrist', '_blank');
+    });
+
+    document.body.appendChild(helpButton);
+});
